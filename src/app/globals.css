@@ -2,16 +2,126 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+    :root {
+        /* Light Mode Colors */
+        /* Primary and Secondary Colors */
+        --color-primary: 130 170 255;      /* Adjusted for RGB */
+        --color-secondary: 200 211 245;    /* Adjusted for RGB */
+
+        /* Accent Colors */
+        --color-accent1: 101 188 255;
+        --color-accent2: 255 199 119;
+        --color-accent3: 255 117 127;
+
+        /* Neutral Colors */
+        --color-neutral-dark: 31 32 40;     /* Adjusted for RGB */
+        --color-neutral-light: 200 211 245; /* Adjusted for RGB */
+        --color-neutral-background: 255 255 255; /* Adjusted for RGB */
+        --color-neutral-foreground: 28 29 36;    /* Adjusted for RGB */
+
+        /* Utility Colors */
+        --color-error: 255 83 112;
+        --color-warning: 255 199 119;
+        --color-info: 130 170 255;
+        --color-success: 195 232 141;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            /* Dark Mode Colors */
+            /* Primary and Secondary Colors */
+            --color-primary: 130 170 255;
+            --color-secondary: 200 211 245;
+
+            /* Accent Colors */
+            --color-accent1: 101 188 255;
+            --color-accent2: 255 199 119;
+            --color-accent3: 255 117 127;
+
+            /* Neutral Colors */
+            --color-neutral-dark: 200 211 245;
+            --color-neutral-light: 31 32 40;
+            --color-neutral-background: 28 29 36;
+            --color-neutral-foreground: 130 139 184;
+
+            /* Utility Colors */
+            --color-error: 255 83 112;
+            --color-warning: 255 199 119;
+            --color-info: 130 170 255;
+            --color-success: 195 232 141;
+        }
+    }
+
+    html {
+      @apply scroll-smooth; 
+    }
+
+    body {
+      @apply font-body bg-neutralBackground text-neutral-700 dark:text-neutral-200 antialiased;
+    }
+
+    code[data-theme*=' '],
+    code[data-theme*=' '] span {
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
+}
+ 
+    @media (prefers-color-scheme: dark) {
+      code[data-theme*=' '],
+      code[data-theme*=' '] span {
+        color: var(--shiki-dark);
+        background-color: var(--shiki-dark-bg);
+      }
+    }
+    pre,code {
+      @apply font-code;
+    }
+    pre {
+      @apply overflow-x-auto bg-neutralDark/5 py-2;
+    }
+
+    pre [data-line] {
+      @apply border-l-2 border-l-transparent px-4;
+   }
+    code {
+      @apply text-sm md:text-base;
+    }
+    pre > code {
+      counter-reset: line;
+    }
+
+    code[data-line-numbers] {
+      counter-reset: line;
+    }
+
+    code[data-line-numbers] > [data-line]::before {
+      counter-increment: line;
+      content: counter(line);
+      @apply inline-block w-4 mr-4 text-right text-neutralForeground/50;
+    }
+
+    [data-highlighted-chars] {
+      @apply bg-indigo-600;
+    }
+
+    figure {
+      @apply relative;
+    }
+    span[data-highlighted-line] {
+       @apply border-l-primary/60 !bg-primary/10 !z-10;
+    }
+
+    [data-rehype-pretty-code-title] {
+      @apply bg-neutralDark/5 text-sm border-b p-2 border-b-neutralForeground/20;
+    }
+
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+
+
+
+
+
+

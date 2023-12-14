@@ -1,0 +1,1 @@
+ALTER TABLE "comments" ALTER COLUMN "createdAt" SET DEFAULT now();

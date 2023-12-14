@@ -1,0 +1,41 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1702518180805,
+      "tag": "0000_jazzy_hydra",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1702561584693,
+      "tag": "0001_shocking_green_goblin",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1702562196094,
+      "tag": "0002_tranquil_gressill",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1702562235770,
+      "tag": "0003_steep_mulholland_black",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1702562362154,
+      "tag": "0004_superb_mercury",
+      "breakpoints": true
+    }
+  ]
+}
