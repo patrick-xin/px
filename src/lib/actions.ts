@@ -27,6 +27,6 @@ export async function leaveComment(formData: FormData) {
     const content = formData.get('content')?.toString()
     const slug = formData.get('slug') as string
 
-    await db.insert(comments).values({ content, postId: "391b0645-123a-4284-9faa-7c90dd78a02d", userId: "c79327ee-9a22-11ee-b9d1-0242ac120002" })
+    // await db.insert(comments).values({ content, postId: "391b0645-123a-4284-9faa-7c90dd78a02d", userId: "c79327ee-9a22-11ee-b9d1-0242ac120002" })
     revalidatePath(`/posts/${slug}`)
 }
