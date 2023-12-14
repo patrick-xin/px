@@ -2,7 +2,7 @@ import type { ComputedFields } from "contentlayer/source-files";
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import readingTime from "reading-time";
 import rehypePrettyCode from 'rehype-pretty-code';
-import { rehypePrettyCodeOptions } from "./lib/rehype-pretty-code";
+import { rehypePrettyCodeOptions } from "./src/lib/rehype-pretty-code";
 
 const computedFields: ComputedFields = {
   readingTime: { type: "json", resolve: (doc) => readingTime(doc.body.raw) },

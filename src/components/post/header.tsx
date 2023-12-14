@@ -3,7 +3,7 @@ import { posts } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import PostViews from "./view";
 import PostLikes from "./like";
-import { sleep } from "lib/utils";
+import { sleep } from "@/lib/utils";
 import SignIn from "../sign-in";
 
 

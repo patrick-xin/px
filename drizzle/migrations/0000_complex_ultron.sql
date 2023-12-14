@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS "verificationToken" (
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "posts" (
-	"uuid1" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"id" serial PRIMARY KEY NOT NULL,
 	"slug" text,
 	"view_count" integer DEFAULT 0,
 	"like_count" integer DEFAULT 0,
@@ -43,11 +43,11 @@ CREATE TABLE IF NOT EXISTS "posts" (
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "comments" (
-	"uuid1" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
-	"content" text,
-	"createdAt" timestamp,
+	"id" serial PRIMARY KEY NOT NULL,
+	"content" text NOT NULL,
+	"createdAt" timestamp DEFAULT now(),
 	"user_id" text,
-	"post_id" text
+	"post_id" integer
 );
 --> statement-breakpoint
 DO $$ BEGIN
@@ -58,6 +58,18 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "session" ADD CONSTRAINT "session_userId_user_id_fk" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE cascade ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "comments" ADD CONSTRAINT "comments_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "user"("id") ON DELETE no action ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "comments" ADD CONSTRAINT "comments_post_id_posts_id_fk" FOREIGN KEY ("post_id") REFERENCES "posts"("id") ON DELETE no action ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

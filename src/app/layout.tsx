@@ -6,7 +6,7 @@ import {
   Architects_Daughter,
 } from "next/font/google";
 import './globals.css'
-import { cn } from 'lib/utils';
+import { cn } from '@/lib/utils';
 import NoiseOverlay from '@/components/overlay';
 
 const spaceMono = Space_Mono({

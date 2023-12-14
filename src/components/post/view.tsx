@@ -1,6 +1,6 @@
 'use client';
 
-import { incrementViews } from "lib/actions";
+import { incrementViews } from "@/lib/actions";
 import { useEffect } from "react";
 
 const PostViews = ({ slug }: { slug: string }) => {

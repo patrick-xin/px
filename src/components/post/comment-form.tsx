@@ -1,4 +1,4 @@
-import { leaveComment } from "lib/actions";
+import { leaveComment } from "@/lib/actions";
 
 const CommentForm = ({ slug }: { slug: string }) => {
 

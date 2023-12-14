@@ -1,6 +1,6 @@
 'use client';
 
-import { likePost } from "lib/actions";
+import { likePost } from "@/lib/actions";
 
 
 const PostLikes = ({ likes, slug }: { likes: number, slug: string }) => {
